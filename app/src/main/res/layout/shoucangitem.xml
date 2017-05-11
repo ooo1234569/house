@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/shoucangtouxiang"
+    android:layout_width="75dp"
+    android:layout_height="75dp"
+    android:src="@drawable/touxiang"
+    android:layout_alignParentLeft="true"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_toRightOf="@+id/shoucangtouxiang">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView8" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView8"
+            android:layout_below="@+id/textView8"
+            android:src="@drawable/enter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textView9"
+            android:layout_alignBottom="@+id/imageView8"
+            android:layout_toEndOf="@+id/imageView8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textView10"
+            android:layout_below="@id/imageView8"/>
+    </RelativeLayout>
+</RelativeLayout>
