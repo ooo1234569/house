@@ -170,6 +170,7 @@ public class Rvadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> imp
             super(itemView);
             System.out.print("jj");
             System.out.print("jj");
+            System.out.print("jj");
         }
     }
 
