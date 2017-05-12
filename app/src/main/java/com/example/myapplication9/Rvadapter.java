@@ -169,6 +169,7 @@ public class Rvadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> imp
         public MiddleBannerHolder(View itemView) {
             super(itemView);
             System.out.print("jj");
+            System.out.print("jj");
         }
     }
 
