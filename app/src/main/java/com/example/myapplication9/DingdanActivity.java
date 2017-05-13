@@ -10,5 +10,7 @@ public class DingdanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dingdan);
         setContentView(R.layout.activity_dingdan);
+        setContentView(R.layout.activity_dingdan);
+        setContentView(R.layout.activity_dingdan);
     }
 }
