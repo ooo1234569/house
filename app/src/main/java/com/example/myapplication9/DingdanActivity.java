@@ -11,5 +11,6 @@ public class DingdanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dingdan);
         setContentView(R.layout.activity_dingdan);
         setContentView(R.layout.activity_dingdan);
+        setContentView(R.layout.activity_dingdan);
     }
 }
