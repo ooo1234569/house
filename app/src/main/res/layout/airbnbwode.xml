@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <FrameLayout
@@ -46,21 +47,22 @@
     <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="81dp">
-
     <RelativeLayout
-        android:layout_width="359dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_height="29dp"
-        android:layout_gravity="center">
-
+        android:layout_gravity="center"
+        android:layout_width="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="53dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="收藏"
             android:textSize="22sp"
             android:id="@+id/textView13"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            app:layout_widthPercent="50%"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -68,6 +70,7 @@
             android:id="@+id/imageView10"
             android:src="@drawable/heart"
             android:layout_alignParentRight="true"/>
+
     </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"
@@ -86,10 +89,11 @@
         android:layout_height="81dp">
 
         <RelativeLayout
-            android:layout_width="359dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="29dp"
-            android:layout_gravity="center">
-
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,9 +128,11 @@
         android:layout_height="81dp">
 
         <RelativeLayout
-            android:layout_width="359dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="29dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,9 +168,11 @@
         android:layout_height="81dp">
 
         <RelativeLayout
-            android:layout_width="359dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="29dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -200,9 +208,11 @@
         android:layout_height="81dp">
 
         <RelativeLayout
-            android:layout_width="359dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="29dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -238,9 +248,11 @@
         android:layout_height="81dp">
 
         <RelativeLayout
-            android:layout_width="359dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="29dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"

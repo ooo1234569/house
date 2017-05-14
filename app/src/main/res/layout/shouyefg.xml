@@ -1,41 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-    <FrameLayout
-        android:id="@+id/fl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ss.com.bannerslider.views.BannerSlider
-            android:id="@+id/banner_slider1"
-            android:layout_width="match_parent"
-            android:layout_height="290dp"
-            app:interval="5000"
-            app:loopSlides="true" />
+    android:layout_width="match_parent"
+    android:orientation="vertical">
         <com.arlib.floatingsearchview.FloatingSearchView
             android:id="@+id/floating_search_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:floatingSearch_searchBarMarginLeft="10dp"
-            app:floatingSearch_searchBarMarginTop="10dp"
-            app:floatingSearch_searchBarMarginRight="10dp"
+            android:layout_height="66dp"
             app:floatingSearch_searchHint="Search..."
             app:floatingSearch_backgroundColor="@color/touming"
             app:floatingSearch_suggestionsListAnimDuration="250"
             app:floatingSearch_showSearchKey="false"
             app:floatingSearch_leftActionMode="showHamburger"
             app:floatingSearch_close_search_on_keyboard_dismiss="true"/>
-    </FrameLayout>
-    <GridView
-        android:id="@+id/gridView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:numColumns="4"
-        android:stretchMode="columnWidth"
-        android:layout_marginBottom="104dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-    </GridView>
-</RelativeLayout>
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

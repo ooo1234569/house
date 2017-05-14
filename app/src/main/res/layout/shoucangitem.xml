@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="好记周庄"
             android:id="@+id/textView8" />
 
         <ImageView
@@ -27,22 +27,38 @@
             android:id="@+id/imageView8"
             android:layout_below="@+id/textView8"
             android:src="@drawable/enter"/>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/imageView8"
+    android:layout_toEndOf="@+id/imageView8">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
+            android:text="月订单666"
             android:id="@+id/textView9"
-            android:layout_alignBottom="@+id/imageView8"
-            android:layout_toEndOf="@+id/imageView8" />
+             /><TextView
+    android:id="@+id/mact1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="734m"
+    android:layout_gravity="end"
+    android:layout_alignParentRight="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="44分钟"
+        android:layout_toLeftOf="@id/mact1"/>
 
+</RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
+            android:text="说明xxxxx"
             android:id="@+id/textView10"
             android:layout_below="@id/imageView8"/>
     </RelativeLayout>
+
 </RelativeLayout>
