@@ -53,4 +53,14 @@ public class Shouyefg extends Fragment {
         gridview.setAdapter(new Gridviewadpter(titles,images,getContext()));
         rvadapter.addHeaderView1(gridmenu);
     }
+    public  void initrv(){
+        View rv=View.inflate(getContext(),R.layout.tujian,null);
+        RecyclerView recyclerView;
+        recyclerView=(RecyclerView)rv.findViewById(R.id.shangjiarv);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        Rvadaptershangjia rvadaptershang;
+        recyclerView.setAdapter(rvadaptershang);
+        rvadapter.addHeaderView3(recyclerView);
+    }
 }
