@@ -4,28 +4,31 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.view.KeyEvent;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
     private BottomNavigationBar bottomNavigationBar;
-    private Shouyefg shouyefg;
     private Dingdanfg dingdanfg;
+    private Shouyefg shouyefg2;
     private Wodefg wodefg;
-    private Nullfg nullfg;
+    private Msgfg msgfg;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private FragmentManager fragmentManager2;
     private FragmentTransaction transaction2;
+    private TelephonyManager tm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        shouyefg=new Shouyefg();
+        shouyefg2=new Shouyefg();
         dingdanfg=new Dingdanfg();
         wodefg=new Wodefg();
-        nullfg=new Nullfg();
+        msgfg=new Msgfg();
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_bar);
         bottomNavigationBar.setActiveColor("#000000")
                 .setInActiveColor("#000000")
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .initialise();
         fragmentManager=getSupportFragmentManager() ;
         transaction=fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment_container,shouyefg);
+        transaction.replace(R.id.fragment_container,shouyefg2);
         transaction.commit();
     }
     public void onTabSelected(int position) {
@@ -49,10 +52,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         transaction2=fragmentManager2.beginTransaction();
         switch (position) {
             case 0:
-                if(!shouyefg.isAdded()) {
-                    transaction2.add(R.id.fragment_container, shouyefg);
+                if(shouyefg2 ==null) {
+                    shouyefg2=new Shouyefg();
                 }
-                transaction2.hide(dingdanfg).hide(wodefg).hide(nullfg).show(shouyefg).commit();
+                if(!shouyefg2.isAdded()) {
+                    transaction2.add(R.id.fragment_container, shouyefg2);
+                }
+                transaction2.hide(dingdanfg).hide(wodefg).hide(msgfg).show(shouyefg2).commit();
                 break;
             case 1:
                 if(dingdanfg ==null) {
@@ -61,16 +67,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 if(!dingdanfg.isAdded()) {
                     transaction2.add(R.id.fragment_container, dingdanfg);
                 }
-                transaction2.hide(shouyefg).hide(wodefg).hide(nullfg).show(dingdanfg).commit();
+                transaction2.hide(shouyefg2).hide(wodefg).hide(msgfg).show(dingdanfg).commit();
                 break;
             case 2:
-                if(nullfg ==null) {
-                    nullfg =new Nullfg();
+                if(msgfg ==null) {
+                    msgfg =new Msgfg();
                 }
-                if(!nullfg .isAdded()) {
-                    transaction2.add(R.id.fragment_container,nullfg );
+                if(!msgfg .isAdded()) {
+                    transaction2.add(R.id.fragment_container,msgfg );
                 }
-                transaction2.hide(shouyefg).hide(dingdanfg).hide(wodefg).show(nullfg ).commit();
+                transaction2.hide(shouyefg2).hide(dingdanfg).hide(wodefg).show(msgfg ).commit();
                 break;
             case 3:
                 if(wodefg ==null) {
@@ -79,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 if(!wodefg.isAdded()) {
                     transaction2.add(R.id.fragment_container,wodefg);
                 }
-                transaction2.hide(shouyefg).hide(dingdanfg).hide(nullfg).show(wodefg).commit();
+                transaction2.hide(shouyefg2).hide(dingdanfg).hide(msgfg).show(wodefg).commit();
                 break;
             default:
                 break;
@@ -94,5 +100,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     public void onTabReselected(int i) {
 
+    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode== KeyEvent.KEYCODE_BACK){
+            this.finish();
+        }
+        return true;
     }
 }

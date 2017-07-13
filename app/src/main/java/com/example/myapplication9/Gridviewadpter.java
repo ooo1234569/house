@@ -6,6 +6,8 @@ package com.example.myapplication9;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 public class Gridviewadpter extends BaseAdapter{
     private Context context;
-
+    private int color1[][]={{0xff,0x5d,0x64},{0x71,0xaa,0xff},{0x8c,0xdb,0x45},{0xe1,0x59,0xcd},{0x8c,0xdb,0x45},{0xff,0xd0,0x45},{0x93,0x8e,0xea},{0xfe,0x5d,0x64}};
     private List<Picture> pictures=new ArrayList<Picture>();
-
+    //private
     public Gridviewadpter(String[] titles, Integer[] images, Context context) {
         super();
         this.context = context;
@@ -76,7 +78,9 @@ public class Gridviewadpter extends BaseAdapter{
         Picture picture = pictures.get(position);
         viewHolder.image.setImageResource(picture.getImageId());
         viewHolder.title.setText(picture.getTitle());
-
+        GradientDrawable myGrad = (GradientDrawable)viewHolder.image.getBackground();
+        myGrad.setSize(70,70);
+        myGrad.setColor(Color.argb(0xff,color1[position][0],color1[position][1],color1[position][2]));
         return convertView;
     }
 

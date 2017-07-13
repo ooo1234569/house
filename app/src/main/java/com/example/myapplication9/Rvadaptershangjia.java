@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.myapplication9.R;import java.util.ArrayList;
 
 /**
  * Created by bingnanfeng02 on 2017/5/15.

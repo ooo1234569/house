@@ -5,19 +5,61 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
-        <com.arlib.floatingsearchview.FloatingSearchView
-            android:id="@+id/floating_search_view"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            app:floatingSearch_searchHint="Search..."
-            app:floatingSearch_backgroundColor="@color/touming"
-            app:floatingSearch_suggestionsListAnimDuration="250"
-            app:floatingSearch_showSearchKey="false"
-            app:floatingSearch_leftActionMode="showHamburger"
-            app:floatingSearch_close_search_on_keyboard_dismiss="true"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
+        <!--<com.arlib.floatingsearchview.FloatingSearchView-->
+            <!--android:id="@+id/floating_search_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--app:floatingSearch_searchHint="Search..."-->
+            <!--app:floatingSearch_backgroundColor="@color/touming"-->
+            <!--app:floatingSearch_suggestionsListAnimDuration="250"-->
+            <!--app:floatingSearch_showSearchKey="false"-->
+            <!--app:floatingSearch_leftActionMode="showHamburger"-->
+            <!--app:floatingSearch_close_search_on_keyboard_dismiss="true"/>-->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="45dp"
+        android:layout_above="@+id/gv"
+        android:id="@+id/fl"
+        android:background="@drawable/biankuang4">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/dingwei"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/photo"/>
+            <TextView
+                android:id="@+id/input"
+                android:background="@drawable/search"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/photo"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_width="329dp"
+                android:layout_height="30dp"
+                android:textSize="15dp"
+                android:text="搜索任意内容..." />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mFilterContentView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>

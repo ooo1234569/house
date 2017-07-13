@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context=".activity.DingweiActivity">
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/v_toolbar_with_back" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:id="@+id/fl"
+        android:layout_below="@+id/action_bar"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/input"
+                android:layout_centerVertical="true"
+                android:background="@drawable/search1"
+                android:layout_centerHorizontal="true"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:layout_width="329dp"
+                android:layout_height="30dp"
+                android:text="搜索任意内容..." />
+        </RelativeLayout>
+    </FrameLayout>
+    <ListView
+        android:id="@+id/city_container1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fl"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+    <com.iasii.app.citylist.view.LetterListView
+        android:id="@+id/letter_container"
+        android:layout_width="22dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/action_bar" />
+</RelativeLayout>

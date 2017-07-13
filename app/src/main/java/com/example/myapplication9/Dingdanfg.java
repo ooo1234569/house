@@ -1,5 +1,6 @@
 package com.example.myapplication9;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import java.lang.reflect.Field;
@@ -23,10 +25,12 @@ public class Dingdanfg extends Fragment {
     private TabLayout.Tab one;
     private TabLayout.Tab two;
     private TabLayout.Tab three;
+    private TextView test;
     FragmentManager childFragmentManager;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view=inflater.inflate(R.layout.dingdanlayout,container,false);
         mViewPager= (ViewPager) view.findViewById(R.id.viewpager);
+        test=(TextView)view.findViewById(R.id.test);
         childFragmentManager = getChildFragmentManager();
         pager = new Pager(childFragmentManager,getContext());
         mViewPager.setAdapter(pager);
@@ -38,6 +42,12 @@ public class Dingdanfg extends Fragment {
         two.setText("未完成订单");
         three = mTabLayout.getTabAt(2);
         three.setText("未评价订单");
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),msgActivity.class));
+            }
+        });
         return view;
     }
     public void onDetach() {
