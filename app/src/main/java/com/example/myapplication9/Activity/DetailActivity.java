@@ -5,25 +5,21 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication9.MyApplication;
 import com.example.myapplication9.PositionListener;
 import com.example.myapplication9.R;
 import com.example.myapplication9.SelectSpecificationView;
-import com.example.myapplication9.SelectView;
-import com.example.myapplication9.adapter.BussinessDetailAdapter;
-import com.example.myapplication9.adapter.GoodsDetailPagerAdapter;
-import com.example.myapplication9.adapter.SelectTimeAdapter;
+import com.example.myapplication9.adapter.MultiFragmentPagerAdapter;
 import com.example.myapplication9.fragment.*;
 
 import java.util.ArrayList;
@@ -34,7 +30,7 @@ import java.util.ArrayList;
  */
 public class DetailActivity extends AppCompatActivity implements PositionListener{
     private FragmentManager fragmentManager;
-    private GoodsDetailPagerAdapter goodsDetailPagerAdapter;
+    private MultiFragmentPagerAdapter multiFragmentPagerAdapter;
     private RelativeLayout relativeLayout;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -50,7 +46,6 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
     private RelativeLayout shoppingcarrl;
     private TextView num;
     private RelativeLayout shopingcar;
-    private boolean selecttime=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +65,8 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
         fragments.add(nullfg2);
         fragments.add(nullfg3);
         fragmentManager=getSupportFragmentManager() ;
-        goodsDetailPagerAdapter=new GoodsDetailPagerAdapter(fragmentManager,this,fragments);
-        mViewPager.setAdapter(goodsDetailPagerAdapter);
+        multiFragmentPagerAdapter =new MultiFragmentPagerAdapter(fragmentManager,this,fragments);
+        mViewPager.setAdapter(multiFragmentPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         one = mTabLayout.getTabAt(0);
         one.setText("服务详情");
@@ -79,6 +74,7 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
         two.setText("收费标准");
         three = mTabLayout.getTabAt(2);
         three.setText("案例介绍");
+        initshoppingcar();
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +93,6 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
             public void onClick(View v) {
                 SetAlpha(0);
                 SetWindow(0);
-                num.setText((Integer.valueOf(num.getText().toString())+1)+"");
             }
         });
         shopingcar.setOnClickListener(new View.OnClickListener() {
@@ -109,11 +104,27 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        initshoppingcar();
+    }
+    void initshoppingcar(){
+        int size=((MyApplication)getApplication()).services.size();
+        if(size>0){
+            shoppingcarrl.setVisibility(View.VISIBLE);
+            num.setText(size+"");
+        }else {
+            shoppingcarrl.setVisibility(View.GONE);
+        }
+    }
+    @Override
     public void onArticleSelected(int position) {
+
         if (position==0){
             SetAlpha(0);
         }else if(position==1){
             SetAlpha(1);
+            initshoppingcar();
         }
     }
     public void SetWindow(int flag){
@@ -131,21 +142,4 @@ public class DetailActivity extends AppCompatActivity implements PositionListene
         }
         getWindow().setAttributes(lp);
     }
-
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-//            if(flag==1){
-//                fragmentManager=getSupportFragmentManager() ;
-//                transaction=fragmentManager.beginTransaction();
-//                transaction.hide(commentfg).show(fuwudetail).commit();
-//                flag=0;
-//            }else {
-//                DetailActivity.this.finish();
-//            }
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-
 }

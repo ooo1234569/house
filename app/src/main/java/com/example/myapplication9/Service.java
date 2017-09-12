@@ -13,4 +13,13 @@ public class Service  implements Serializable {
     public int num;
     public float howmuch;
     public float total;
+    private boolean select=false;
+
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
+    }
 }

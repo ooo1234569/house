@@ -1,23 +1,18 @@
 package com.example.myapplication9.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.myapplication9.ActivityCollector;
 import com.example.myapplication9.R;
 import com.example.myapplication9.TestSignupFragment;
-import com.example.myapplication9.adapter.GoodsDetailPagerAdapter;
+import com.example.myapplication9.adapter.MultiFragmentPagerAdapter;
 import com.example.myapplication9.fragment.LoginFragment;
-import com.example.myapplication9.fragment.SignupFragment;
 
 import java.util.ArrayList;
 
@@ -26,7 +21,7 @@ import java.util.ArrayList;
  */
 public class LoginActivity extends BaseActivity {
     private FragmentManager fragmentManager;
-    private GoodsDetailPagerAdapter goodsDetailPagerAdapter;
+    private MultiFragmentPagerAdapter multiFragmentPagerAdapter;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private TabLayout.Tab one;
@@ -46,8 +41,8 @@ public class LoginActivity extends BaseActivity {
         fragments.add(signupFragment);
         fragments.add(loginFragment);
         fragmentManager = getSupportFragmentManager();
-        goodsDetailPagerAdapter = new GoodsDetailPagerAdapter(fragmentManager, this,fragments);
-        mViewPager.setAdapter(goodsDetailPagerAdapter);
+        multiFragmentPagerAdapter = new MultiFragmentPagerAdapter(fragmentManager, this,fragments);
+        mViewPager.setAdapter(multiFragmentPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         one = mTabLayout.getTabAt(0);
         one.setText("注册");

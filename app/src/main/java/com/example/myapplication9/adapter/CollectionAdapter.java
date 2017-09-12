@@ -46,7 +46,7 @@ public class CollectionAdapter extends RecyclerView.Adapter {
                 context.startActivity(new Intent(context,DetailActivity.class));
             }
         });
-        Glide.with(context).load(R.drawable.touxiang).into(((Shangjiainfo) viewHolder).imageView);
+        Glide.with(context).load(R.drawable.touxiang).asBitmap().into(((Shangjiainfo) viewHolder).imageView);
     }
 
     @Override

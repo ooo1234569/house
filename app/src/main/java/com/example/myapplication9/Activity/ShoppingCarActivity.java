@@ -1,44 +1,31 @@
 package com.example.myapplication9.Activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.example.myapplication9.R;
-import com.example.myapplication9.ShoppingCar;
-import com.example.myapplication9.adapter.ShoppingCarAdapter;
+import com.example.myapplication9.fragment.ShoppingCarFragment;
 
-import java.util.ArrayList;
 
 /**
  * Created by bingnanfeng02 on 2017/8/29.
  */
-public class ShoppingCarActivity extends BackActivity {
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
-    private ShoppingCarAdapter shoppingCarAdapter;
-    private ArrayList<ShoppingCar> shoppingCars=new ArrayList<>();
+public class ShoppingCarActivity extends AppCompatActivity{
+   private ShoppingCarFragment shoppingCarFragment;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping_car);
-        recyclerView=(RecyclerView)findViewById(R.id.rv);
-        linearLayoutManager=new LinearLayoutManager(this);
-        initdata();
-        shoppingCarAdapter=new ShoppingCarAdapter(shoppingCars);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(shoppingCarAdapter);
+        setContentView(R.layout.activity_fragment_container);
+        shoppingCarFragment=new ShoppingCarFragment();
+        fragmentManager=getSupportFragmentManager() ;
+        transaction=fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl,shoppingCarFragment);
+        transaction.commit();
     }
-    void initdata(){
-        for (int i=0;i<5;i++){
-            ShoppingCar shoppingCar =new ShoppingCar();
-            shoppingCar.setName("服务1"+i);
-            shoppingCar.setNum("x1");
-            shoppingCar.setPay("52.6"+i);
-            shoppingCar.setTime("9月1日 9:00"+i);
-            shoppingCars.add(shoppingCar);
-        }
-    }
+
 }
 

@@ -76,21 +76,22 @@ public class SelectSpecificationView  extends PopupWindow  implements PositionLi
         sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                service.num=Integer.valueOf(num.getText().toString());
+                service.date=arrayList.get(timeObject.position).date;
+                service.months=arrayList.get(timeObject.position).months;
+                service.time=dates.get(dateObject.p);
+                service.howmuch=30;
+                service.total=service.howmuch*service.num;
                 if(flag==1){
                     Intent intent=new Intent(context,OrderActivity.class);
-                    service.num=Integer.valueOf(num.getText().toString());
-                    service.date=arrayList.get(timeObject.position).date;
-                    service.months=arrayList.get(timeObject.position).months;
-                    service.time=dates.get(dateObject.p);
-                    service.howmuch=30;
-                    service.total=service.howmuch*service.num;
                     ArrayList<Service> services=new ArrayList<>();
                     services.add(service);
                     intent.putExtra("service",services);
                     context.startActivity(intent);
                 }else {
-                    dismiss();
                     Toast.makeText(context,"加入购物车成功",Toast.LENGTH_SHORT).show();
+                    ((MyApplication)context.getApplicationContext()).services.add(service);
+                    dismiss();
                 }
             }
         });

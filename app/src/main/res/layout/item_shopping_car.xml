@@ -83,7 +83,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="7dp"
-            android:text="删除"/>
+            android:text="删除"
+            android:id="@+id/delete"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

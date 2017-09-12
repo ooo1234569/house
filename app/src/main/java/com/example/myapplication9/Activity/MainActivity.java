@@ -122,6 +122,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 for(ut=0;ut<views.size();ut++){
                     transaction.hide(views.get(ut));
                 }
+                transaction.hide(shouyefg2);
                 transaction.show(shoppingCarFragment).commit();
                 break;
             case 4:

@@ -37,14 +37,29 @@
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="单位"
+            android:id="@+id/unit"
+            android:textSize="18sp"
+            android:layout_marginRight="5dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/unit"
+            android:layout_centerVertical="true">
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:src="@drawable/jia"
             android:layout_marginRight="5dp"
-            android:id="@+id/jia"/>
+            android:id="@+id/jia"
+            android:layout_alignParentRight="true"
+            />
         <EditText
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -54,6 +69,8 @@
             android:inputType="number"
             android:maxLines="1"
             android:background="@null"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             />
         <ImageView
             android:layout_width="25dp"
@@ -61,7 +78,7 @@
             android:layout_centerVertical="true"
             android:src="@drawable/jian"
             android:layout_toLeftOf="@+id/num"
-            android:id="@+id/jian" />
+            android:id="@+id/jian" /></RelativeLayout>
     </RelativeLayout>
     <include layout="@layout/divider"></include>
 

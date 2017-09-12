@@ -16,21 +16,17 @@ import java.util.ArrayList;
 /**
  * Created by bingnanfeng02 on 2017/8/4.
  */
-public class GoodsDetailPagerAdapter extends FragmentPagerAdapter {
+public class MultiFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private String tabTitles[] = new String[]{"tab1","tab2","tab3"};
     private Context context;
-    private GoodsDetailFragment fuwudetail;
-    private Nullfg2 nullfg2;
-    private Nullfg3 nullfg3;
     private ArrayList<Fragment> fragments;
-    public GoodsDetailPagerAdapter(FragmentManager fm, Context context, ArrayList<Fragment> fragments) {
+    public MultiFragmentPagerAdapter(FragmentManager fm, Context context, ArrayList<Fragment> fragments) {
         super(fm);
         this.context = context;
         this.fragments=fragments;
 
     }
-
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);
