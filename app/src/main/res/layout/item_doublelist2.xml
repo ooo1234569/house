@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="19dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/rl">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:text="清洁服务"
+            android:id="@+id/type"/>
+    </RelativeLayout>
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:background="#ffffff">
+    </GridView>
+</LinearLayout>
+    <View
+        android:layout_gravity="bottom"
+        android:background="#cdcdcd"
+        android:layout_width="match_parent"
+        android:layout_height="0.01dip"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+</LinearLayout>

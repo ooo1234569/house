@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/rl">
+<ImageView
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="15dp"
+    android:id="@+id/heart"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收藏"
+        android:textSize="17sp"
+        android:layout_toRightOf="@+id/heart"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/textView13"/>
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:id="@+id/enter"/></RelativeLayout>
+    <include layout="@layout/divider2"></include>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f1f1f1"
+        android:visibility="invisible"
+        android:id="@+id/space"></View>
+</LinearLayout>

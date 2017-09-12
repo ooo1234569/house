@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="demo" />
+    <version value="4" />
+
+    <list>
+        <mapping class="com.example.myapplication9.Person"></mapping>
+        <mapping class="com.example.myapplication9.Session"></mapping>
+        <mapping class="com.example.myapplication9.Address"></mapping>
+        <mapping class="com.example.myapplication9.LocationHistory"></mapping>
+    </list>
+
+
+</litepal>

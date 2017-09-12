@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // 用户数据库文件的版本
     private static final int DB_VERSION = 3;
     // 数据库文件目标存放路径为系统默认位置，com.droid 是你的包名
-    private static String DB_PATH = "/data/data/com.example.myapplication9/databases/";
+    private static String DB_PATH = "/data/user/0/com.example.myapplication9/shared_prefs/";
     /*
      * //如果你想把数据库文件存放在SD卡的话 private static String DB_PATH =
      * android.os.Environment.getExternalStorageDirectory().getAbsolutePath() +
@@ -80,6 +81,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void createDataBase() throws IOException {
+        DB_PATH=myContext.getFilesDir().getParentFile().getPath()+"/shared_prefs/";
+        Log.d("sdsd",DB_PATH);
         boolean dbExist = checkDataBase();
         if (dbExist) {
             // 数据库已存在，do nothing.

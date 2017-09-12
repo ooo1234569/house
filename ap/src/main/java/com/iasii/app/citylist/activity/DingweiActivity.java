@@ -46,7 +46,7 @@ public class DingweiActivity extends AppCompatActivity implements LetterListView
     private List<String> historyCities = new ArrayList<>();
     private List<City> citiesData;
     private Map<String, Integer> letterIndex = new HashMap<>();
-    private CityListAdapter cityListAdapter;
+    public CityListAdapter cityListAdapter;
 
 
     private TextView letterOverlay; // 对话框首字母textview
@@ -56,7 +56,7 @@ public class DingweiActivity extends AppCompatActivity implements LetterListView
     private boolean isScroll;
     private boolean isOverlayReady;
     private Handler handler;
-
+    public String locationcity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,18 +64,23 @@ public class DingweiActivity extends AppCompatActivity implements LetterListView
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         city_container = (ListView) findViewById(R.id.city_container1);
         letter_container = (LetterListView) findViewById(R.id.letter_container);
-
         databaseHelper = new DatabaseHelper(this);
         handler = new Handler();
         setupActionBar();
-
         initCity();
         initHotCity();
         initHistoryCity();
+        initapplication();
         setupView();
+        initlistener();
         initOverlay();
     }
+    public  void initapplication(){
 
+    }
+    public  void initlistener(){
+
+    }
     private void initCity() {
         City city = new City("定位", "0"); // 当前定位城市
         allCities.add(city);
@@ -177,11 +182,11 @@ public class DingweiActivity extends AppCompatActivity implements LetterListView
         }
     };
 
-    private void setupView() {
+    public void setupView() {
         city_container.setOnScrollListener(this);
         letter_container.setOnTouchingLetterChangedListener(this);
 
-        cityListAdapter = new CityListAdapter(this, allCities, hotCities, historyCities, letterIndex);
+        cityListAdapter = new CityListAdapter(this, allCities, hotCities, historyCities, letterIndex,locationcity);
         city_container.setAdapter(cityListAdapter);
     }
 

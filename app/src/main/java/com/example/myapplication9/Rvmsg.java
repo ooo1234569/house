@@ -1,17 +1,20 @@
 package com.example.myapplication9;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.myapplication9.Activity.MessageActivity;
+
 import java.util.ArrayList;
-import java.util.List;
+
+
 
 /**
  * Created by fengbingnan on 2017/7/13.
@@ -19,8 +22,10 @@ import java.util.List;
 
 public class Rvmsg extends RecyclerView.Adapter<Rvmsg.ViewHolder> {
     private ArrayList<Msgitem> arrayList;
-    public Rvmsg(ArrayList<Msgitem> arrayList){
+    private Context context;
+    public Rvmsg(ArrayList<Msgitem> arrayList, Context context){
         this.arrayList=arrayList;
+        this.context=context;
     }
     static  class ViewHolder extends RecyclerView.ViewHolder{
         TextView name;
@@ -28,6 +33,7 @@ public class Rvmsg extends RecyclerView.Adapter<Rvmsg.ViewHolder> {
         ImageView imageView;
         private TextView time;
         private View view;
+        private ImageView touxiang;
         public ViewHolder(View itemView) {
             super(itemView);
             view=itemView;
@@ -35,16 +41,17 @@ public class Rvmsg extends RecyclerView.Adapter<Rvmsg.ViewHolder> {
             name=(TextView) itemView.findViewById(R.id.textView14);
             more=(TextView)itemView.findViewById(R.id.textView15);
             time=(TextView)itemView.findViewById(R.id.textView16);
+            touxiang=(ImageView)itemView.findViewById(R.id.imageView9);
         }
     }
     @Override
     public Rvmsg.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.messageitem,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message,parent,false);
         ViewHolder holder=new ViewHolder(view);
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               v.getContext().startActivity(new Intent(v.getContext(),msgActivity.class));
+               v.getContext().startActivity(new Intent(v.getContext(), MessageActivity.class));
             }
         });
         holder.view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -63,7 +70,7 @@ public class Rvmsg extends RecyclerView.Adapter<Rvmsg.ViewHolder> {
         holder.name.setText(msgitem.name);
         holder.time.setText(msgitem.time);
         holder.more.setText(msgitem.more);
-
+        Glide.with(context).load(R.drawable.touxiang).into(holder.touxiang);
     }
 
     @Override

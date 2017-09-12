@@ -1,16 +1,19 @@
 package com.iasii.app.citylist.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iasii.app.citylist.R;
+import com.iasii.app.citylist.TouchListener;
 import com.iasii.app.citylist.entity.City;
 
 import java.util.List;
@@ -29,15 +32,16 @@ public class CityListAdapter extends BaseAdapter {
     private String[] firstLetterArray;// 存放存在的汉语拼音首字母
     private Map<String, Integer> letterIndex;
     private final int VIEW_TYPE = 5;
-
-    public CityListAdapter(Context context, List<City> allCities, List<City> hotCities, List<String> historyCities, Map<String, Integer> letterIndex) {
+    private String locationcity;
+    TouchListener touchListener;
+    public CityListAdapter(Context context, List<City> allCities, List<City> hotCities, List<String> historyCities, Map<String, Integer> letterIndex,String locationcity) {
         this.context = context;
         this.allCities = allCities;
         this.hotCities = hotCities;
         this.historyCities = historyCities;
         this.letterIndex = letterIndex;
         inflater = LayoutInflater.from(this.context);
-
+        this.locationcity=locationcity;
         setup();
     }
 
@@ -86,6 +90,13 @@ public class CityListAdapter extends BaseAdapter {
         int viewType = getItemViewType(position);
         if (viewType == 0) {//定位
             convertView = inflater.inflate(R.layout.item_city_location, null);
+            Button button=(Button)convertView.findViewById(R.id.tv_location);
+            if(locationcity.equals("")){
+                button.setText("北京市");
+                Toast.makeText(context,"当前无法定位，请手动定位或者前往设置打开定位",Toast.LENGTH_SHORT).show();
+            }else {
+                button.setText(locationcity);
+            }
         } else if (viewType == 1) {//最近访问
             convertView = inflater.inflate(R.layout.item_city_grid, null);
             GridView recentCityView = (GridView) convertView.findViewById(R.id.grid_city);
@@ -102,14 +113,14 @@ public class CityListAdapter extends BaseAdapter {
         } else if (viewType == 2) {//热门城市
             convertView = inflater.inflate(R.layout.item_city_grid, null);
             final GridView hotCity = (GridView) convertView.findViewById(R.id.grid_city);
-//            hotCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Toast.makeText(context, hotCities.get(position).getName(), Toast.LENGTH_SHORT).show();
-//
-//                }
-//            });
+            hotCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //Toast.makeText(context, hotCities.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    touchListener.city(hotCities.get(position).getName());
+                }
+            });
             hotCity.setAdapter(new HotCityAdapter(context, this.hotCities));
             TextView hotHint = (TextView) convertView.findViewById(R.id.recentHint);
             hotHint.setText("热门城市");
@@ -131,7 +142,8 @@ public class CityListAdapter extends BaseAdapter {
                 holder.name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(context,allCities.get(position).getName(),Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context,allCities.get(position).getName(),Toast.LENGTH_SHORT).show();
+                        touchListener.city(allCities.get(position).getName());
                     }
                 });
                 String currentStr = getAlpha(allCities.get(position).getPinyin());
@@ -177,5 +189,8 @@ public class CityListAdapter extends BaseAdapter {
         } else {
             return "#";
         }
+    }
+    public void setp(TouchListener touchListener){
+        this.touchListener=touchListener;
     }
 }

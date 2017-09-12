@@ -44,15 +44,15 @@ public class HotCityAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.item_city_cell, null);
+        convertView = inflater.inflate(R.layout.item_city_cell2, null);
         final TextView city = (TextView) convertView.findViewById(R.id.city);
         city.setText(hotCities.get(position).getName());
-        city.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, city.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        city.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(context, city.getText(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
         return convertView;
     }
 }

@@ -5,6 +5,6 @@ package com.example.myapplication9;
  */
 
 public class Msg {
-    String content;
-    int leixing;
+    public String content;
+    public int leixing;
 }

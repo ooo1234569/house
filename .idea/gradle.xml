@@ -5,12 +5,15 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\新建文件夹 (3)\gradle\gradle-2.10" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-3.3-all" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ap" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/popupbuttonlibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
